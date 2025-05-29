@@ -1,27 +1,53 @@
-#container {
+:host {
+  --ion-background-color: #ffffff;
+  --ion-text-color: #333333;
+}
+
+.titulo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
+.usuario {
   font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-#container a {
-  text-decoration: none;
+.subtitulo {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #444;
+  text-align: center;
+}
+
+.botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+ion-button {
+  --background: #be64a0;
+  --color: white;
+  width: 48%;
+}
+
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+}
+
+ion-datetime {
+  --background: #fec4e7;
+  --background-rgb: 255, 241, 242;
+
+  border-radius: 16px;
+  box-shadow: rgba(var(--ion-color-rose-rgb), 0.3) 0px 10px 15px -3px;
 }

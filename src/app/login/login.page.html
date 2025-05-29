@@ -4,16 +4,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Nombre</ion-card-title>
-    <ion-card-subtitle>Correo</ion-card-subtitle>
-  </ion-card-header>
+<ion-content class="ion-padding">
+  <form (ngSubmit)="login()">
+    <ion-item>
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario" name="usuario" required></ion-input>
+    </ion-item>
 
-  <ion-card-content>
-    <p><strong>Nombre:</strong> {{ nombre }}</p>
-    <p><strong>Correo:</strong> {{ correo }}</p>
-  </ion-card-content>
-</ion-card>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="contrasena" name="contrasena" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" class="ion-margin-top">Ingresar</ion-button>
+
+    <ion-text class="forgot-password" color="dark">
+      <p class="ion-text-center ion-margin-top">¿Olvidaste tu contraseña?</p>
+    </ion-text>
+  </form>
 </ion-content>
+
+
+

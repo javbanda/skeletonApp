@@ -1,0 +1,48 @@
+:host {
+  --ion-background-color: #ffffff;
+  --ion-text-color: #333333;
+}
+
+ion-content {
+  --background: #ffffff;
+  color: #333333;
+}
+
+ion-toolbar {
+  --background: #ffffff;
+  --color: #333333;
+}
+
+ion-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333333;
+}
+
+ion-item {
+  --highlight-color-focused: #be64a0;
+  --border-color: #ccc;
+  color: #333333;
+}
+
+ion-label {
+  color: #666666;
+}
+
+ion-input {
+  color: #333333;
+}
+
+ion-button {
+  --background: #be64a0;
+  --background-activated: #a6558b;
+  --background-focused: #be64a0;
+  --color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.forgot-password p {
+  color: #333333;
+  font-size: 0.95rem;
+}
