@@ -16,6 +16,8 @@ export class HomePage {
   fechaNacimiento: string = '';
 
   @ViewChild('tituloAnimado', { read: ElementRef }) tituloAnimado!: ElementRef;
+  @ViewChild('bienvenidaAnimada', { read: ElementRef }) bienvenidaAnimada!: ElementRef;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +38,14 @@ export class HomePage {
       .fromTo('opacity', '0', '1')
       .fromTo('transform', 'translateY(-20px)', 'translateY(0px)');
 
+    const bienvenida = createAnimation()
+    .addElement(this.bienvenidaAnimada.nativeElement)
+    .duration(1000)
+    .delay(300) // espera un poco para que entre después del título
+    .fromTo('opacity', '0', '1')
+    .fromTo('transform', 'translateY(-20px)', 'translateY(0px)');
+    
+    bienvenida.play();
     animation.play();
   }
 
