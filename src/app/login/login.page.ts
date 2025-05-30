@@ -27,8 +27,8 @@ export class LoginPage {
       this.presentAlert('Contraseña inválida. Debe contener entre 3 y 8 dígitos.');
       return;
     }
-
-    // ✅ Redirige a la página Home
+ 
+    
     this.router.navigate(['/home'], {
       queryParams: { usuario: this.usuario },
     });

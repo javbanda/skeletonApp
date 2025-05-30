@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController, createAnimation } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +15,28 @@ export class HomePage {
   nivelEducacion: string = '';
   fechaNacimiento: string = '';
 
+  @ViewChild('tituloAnimado', { read: ElementRef }) tituloAnimado!: ElementRef;
+
   constructor(
     private route: ActivatedRoute,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private menu: MenuController
   ) {
     this.route.queryParams.subscribe(params => {
       this.usuario = params['usuario'] || 'Invitado';
     });
+
+    this.menu.enable(true); // Activa el menú para esta vista
+  }
+
+  ionViewDidEnter() {
+    const animation = createAnimation()
+      .addElement(this.tituloAnimado.nativeElement)
+      .duration(1000)
+      .fromTo('opacity', '0', '1')
+      .fromTo('transform', 'translateY(-20px)', 'translateY(0px)');
+
+    animation.play();
   }
 
   limpiar() {
@@ -35,9 +50,9 @@ export class HomePage {
     const alert = await this.alertCtrl.create({
       header: 'Información Ingresada',
       message: `
-        Nombre: ${this.nombre} ${this.apellido} 
-        Nivel Educación: ${this.nivelEducacion} 
-        Fecha Nacimiento: ${this.formatearFecha(this.fechaNacimiento)} 
+        Nombre: ${this.nombre} ${this.apellido}<br>
+        Nivel Educación: ${this.nivelEducacion}<br>
+        Fecha Nacimiento: ${this.formatearFecha(this.fechaNacimiento)}
       `,
       buttons: ['OK']
     });
@@ -62,7 +77,6 @@ export class HomePage {
     });
     await alert.present();
 
-    
     const modal: HTMLIonModalElement | null = document.querySelector('ion-modal');
     if (modal) {
       await modal.dismiss();

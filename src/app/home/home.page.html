@@ -1,10 +1,28 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>Inicio</ion-item>
+      <ion-item>Perfil</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
 <ion-header [translucent]="true">
   <ion-toolbar color="light">
-    <ion-title>SkeletonAPP</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title #tituloAnimado>SkeletonAPP</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" id="main-content">
+
   <h1 class="titulo">¡Bienvenido!</h1>
   <p class="usuario">Usuario: {{ usuario }}</p>
 
@@ -29,22 +47,17 @@
     </ion-select>
   </ion-item>
 
-  <!-- Botón que abre el calendario -->
-
-<ion-item>
-  <ion-label>Fecha Nacimiento</ion-label>
-  <ion-datetime
-    [(ngModel)]="fechaNacimiento"
-    [showDefaultButtons]="true"
-    cancelText="Cancelar"
-    doneText="Aceptar"
-    presentation="date"
-    locale="es-CL">
-  </ion-datetime>
-</ion-item>
-
-
-
+  <ion-item>
+    <ion-label>Fecha Nacimiento</ion-label>
+    <ion-datetime
+      [(ngModel)]="fechaNacimiento"
+      [showDefaultButtons]="true"
+      cancelText="Cancelar"
+      doneText="Aceptar"
+      presentation="date"
+      locale="es-CL">
+    </ion-datetime>
+  </ion-item>
   <div class="botones">
     <ion-button expand="block" fill="outline" color="medium" (click)="limpiar()">Limpiar</ion-button>
     <ion-button expand="block" color="primary" (click)="mostrar()">Mostrar</ion-button>
